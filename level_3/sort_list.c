@@ -1,9 +1,8 @@
-#include "list.h"
 #include <unistd.h>
 
 t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
 {
-	int		overflow;
+	int		swap;
 	t_list	*tmp;
 
 	tmp = lst;
