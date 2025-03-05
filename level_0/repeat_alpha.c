@@ -1,41 +1,32 @@
-#include <stdio.h>
 #include <unistd.h>
 
-void	repeat_alpha(char c)
+void	ft_putchar(char c)
 {
-	int	i;
-	int	alpha_index;
-
-	i = 0;
-	if (c >= 'a' && c <= 'z')
-		alpha_index = c - 'a' + 1;
-	else if (c >= 'A' && c <= 'Z')
-		alpha_index = c - 'A' + 1;
-	else
-	{
-		write(1, &c, 1);
-		return ;
-	}
-	while (i < alpha_index)
-	{
-		write(1, &c, 1);
-		i++;
-	}
+	write(1, &c, 1);
 }
 
 int	main(int argc, char **argv)
 {
 	int	i;
+	int	rep;
 
-	i = 0;
 	if (argc == 2)
 	{
+		i = 0;
 		while (argv[1][i])
 		{
-			repeat_alpha(argv[1][i]);
+			rep = 1;
+			if (argv[1][i] >= 'a' && argv[1][i] <= 'z')
+				rep += argv[1][i] - 'a';
+			else if (argv[1][i] >= 'A' && argv[1][i] <= 'Z')
+				rep += argv[1][i] - 'A';
+			while (rep)
+			{
+				ft_putchar(argv[1][i]);
+				rep--;
+			}
 			i++;
 		}
 	}
-	write(1, "\n", 1);
-	return (0);
+	ft_putchar('\n');
 }

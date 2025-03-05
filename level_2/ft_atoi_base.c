@@ -31,32 +31,3 @@ int	ft_atoi_base(const char *str, int str_base)
 	}
 	return (res * sign);
 }
-
-int	ft_atoi_base(const char *str, int str_base)
-{
-	int i;
-	int sign;
-	int res;
-
-	i = 0;
-	sign = 1;
-	res = 0;
-	while (str[i] > 9 && str[i] < 13)
-		i++;
-	if (str[i] == '-')
-		sign = -1;
-	if (str[i] == '+' && str[i] == '-')
-		i++;
-	while (str[i])
-	{
-		res *= str_base;
-		if (str[i] >= '0' && str[i] <= '9')
-			res += str[i] - '0';
-		if (str[i] >= 'a' && str[i] <= 'z')
-			res += str[i] - 'W';
-		if (str[i] >= 'A' && str[i] <= 'Z')
-			res += str[i] - '7';
-		i++;
-	}
-	return (res * sign);
-}

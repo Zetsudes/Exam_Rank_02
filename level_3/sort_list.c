@@ -1,18 +1,19 @@
-#include <unistd.h>
+#include "list.h"
 
-t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
+
+t_list	*sort_list(t_list *lst, int (*cmp)(int, int))
 {
-	int		swap;
-	t_list	*tmp;
+	int swap;
+	t_list *tmp;
 
 	tmp = lst;
-	while (lst->next != NULL)
+	while (lst->next)
 	{
 		if (((*cmp)(lst->data, lst->next->data)) == 0)
 		{
-			overflow = lst->data;
+			swap = lst->data;
 			lst->data = lst->next->data;
-			lst->next->data = overflow;
+			lst->next->data = swap;
 			lst = tmp;
 		}
 		else
