@@ -7,7 +7,7 @@ void ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void ft_pustr(char *s)
+void ft_putstr(char *s)
 {
 	int i;
 
@@ -62,7 +62,7 @@ int main(int argc, char **argv)
 			ft_putchar(' ');
 		else if (argv[1][i - 2] != ' ')
 			ft_putchar(' '); 
-		ft_pustr(tmp);
+		ft_putstr(tmp);
 		free(tmp);
 	}
 	if (argc > 2)
