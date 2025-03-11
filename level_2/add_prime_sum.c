@@ -70,8 +70,11 @@ int	main(int argc, char *argv[])
 		nb = ft_atoi(argv[1]);
 		sum = 0;
 		while (nb > 0)
-			if (is_prime(nb--))
-				sum += (nb + 1);
+		{
+			if (is_prime(nb))
+				sum += nb;
+			nb--;
+		}
 		ft_putnbr(sum);
 	}
 	if (argc != 2)

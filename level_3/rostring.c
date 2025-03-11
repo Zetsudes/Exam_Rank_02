@@ -34,28 +34,21 @@ int main(int argc, char **argv)
 		while (argv[1][i] == ' ')
 			i++;
 		j = i;
-		while (argv[1][j] != ' ')
+		while (argv[1][j] != ' '&& argv[1][j] != '\0')
 			j++;
 		tmp = malloc((j - i + 1) * sizeof(char));
 		while (i < j)
-		{
-			tmp[k] = argv[1][i];
-			k++;
-			i++;
-		}
+			tmp[k++] = argv[1][i++];
 		tmp[k] = '\0';
 		printed = 0;
-		while (argv[1][i] != '\0')
+		while (argv[1][i])
 			{
 				while (argv[1][i] == ' ')  
                 	i++;
 				if (argv[1][i] != '\0' && printed)  
                 	ft_putchar(' ');
 				while (argv[1][i] != ' ' && argv[1][i] != '\0')  
-           	 	{
-                	ft_putchar(argv[1][i]);
-                	i++;
-           		}
+                	ft_putchar(argv[1][i++]);
 				printed = 1;
 			}
 		if (argv[1][i - 1] != ' ')
@@ -65,15 +58,7 @@ int main(int argc, char **argv)
 		ft_putstr(tmp);
 		free(tmp);
 	}
-	if (argc > 2)
-		{
-			i = 0;
-			while (argv[1][i])
-			{
-				ft_putchar(argv[1][i]);
-				i++;
-			}
-	
-		}
+	else if (argc > 2)
+		ft_putstr(argv[1]);
 	ft_putchar('\n');
 }
